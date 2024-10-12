@@ -1,0 +1,63 @@
+1. Dashboard - Main page
+    -Date fragment picker:
+    Select premium customers only, select dates. (Reactive data changes)
+
+    -Cards:
+    Total users, total subscriptions, total views (site views)
+
+    -Grid:
+    Latest transactions (name, email, status, date, amount)
+
+    -Graphic:
+    Weekly recaps (users, views, transactions, subscriptions) <- filters
+
+2. Users
+    -Date fragment picker:
+    Select premium customers only, select dates. (Reactive data changes)
+
+    -Grid:
+    Users (avatar, name, email, registration date, subscription, subscription date, status, ban, unban)
+
+    2.1 User:
+        -Card:
+        Avatar, name, email, last online
+
+3. Films
+    -Filter:
+    Name (input) category (checkbox), date (range picker), most/least viewed
+
+    -Sidebar:
+    TV series, films, trending (weekly/monthly)
+
+    -Grid:
+    Films/Tv series (avatar, name, category, date, status, views, edit, delete)
+
+    3.1 Trending:
+        -Checkbox:
+        Weekly/Monthly
+
+        -Cards:
+        3 most viewed films & tv series (unchanging data)
+
+        -Filter:
+        Category (checkbox), date (range picker)
+
+        -Cards:
+        Data from the filter (top 3)
+
+    3.2 Films:
+        Edit film page
+
+4. Transactions
+    -Filter:
+    Name (input), date (range picker)
+
+    -Grid:
+    Users (avatar, name, email, registration date, transaction status, transaction status, last transaction)
+
+    4.1 User
+        -Card:
+        Avatar, name, email, last online
+
+        -Grid:
+        Transactions (date, status, amount, note)

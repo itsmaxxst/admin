@@ -1,0 +1,9 @@
+.base{
+    background-color: var(--bgHover);
+    color: var(--text);
+}
+.title{
+    color: var(--textSoft);
+    font-weight: 300;
+    font-size: 24px;
+}

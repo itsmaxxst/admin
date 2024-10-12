@@ -1,0 +1,68 @@
+.bg{
+    background-color: var(--bgSoft) !important;
+    color: var(--text) !important;
+}
+.input {
+    background-color: var(--bgSoft) !important;
+    border: none;
+    color: var(--text) !important;
+    outline: none;
+    box-shadow: none !important;
+    padding: 10px;
+}
+
+.input:focus {
+    outline: none;
+}
+
+.inputWrapper {
+    background-color: var(--bgSoft) !important;
+    color: var(--text) !important;
+}
+
+.bg:hover {
+    background-color: var(--bgHover) !important;
+}
+
+.cursor{
+    background-color: var(--bgHover) !important;
+}
+
+.description {
+    color: var(--textSoft) !important;
+}
+
+.wrapper {
+    max-height: 382px !important;
+    background-color: var(--bgSoft) !important;
+    color: var(--text) !important;
+}
+
+.header{
+    background-color: var(--bg) !important;
+}
+
+.chip{
+    color: var(--text) !important;
+}
+
+.row{
+    background-color: var(--bgSoft) !important;
+}
+
+.row:hover{
+    background-color: var(--bgHover) !important;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title{
+    margin-bottom: 20px;
+    font-weight: 200;
+    color: var(--textSoft) !important;
+    font-size: 24px;
+}

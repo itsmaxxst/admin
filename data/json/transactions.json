@@ -1,0 +1,219 @@
+{
+  "columns": [
+    { "name": "ID", "uid": "id", "sortable": true },
+    { "name": "NAME", "uid": "name", "sortable": true },
+    { "name": "AGE", "uid": "age", "sortable": true },
+    { "name": "EMAIL", "uid": "email" },
+    { "name": "TRANSACTION DATE", "uid": "transactionDate", "sortable": true },
+    { "name": "STATUS", "uid": "status", "sortable": true },
+    { "name": "AMOUNT", "uid": "amount" },
+    { "name": "ACTIONS", "uid": "actions" }
+  ],
+  "statusOptions": [
+    { "name": "Success", "uid": "success" },
+    { "name": "Pending...", "uid": "pending"},
+    { "name": "Failed", "uid": "failed" }
+  ],
+  "transactions": [
+    {
+      "id": 1,
+      "name": "Tony Reichert",
+      "status": "success",
+      "transactionDate": "date1",
+      "age": "29",
+      "avatar": "https://i.pravatar.cc/150?u=a042581f4e29026024d",
+      "email": "tony.reichert@example.com",
+      "amount": "15"
+    },
+    {
+      "id": 2,
+      "name": "Zoey Lang",
+      "status": "success",
+      "transactionDate": "date2",
+      "age": "25",
+      "avatar": "https://i.pravatar.cc/150?u=a042581f4e29026704d",
+      "email": "zoey.lang@example.com",
+      "amount": "15"
+    },
+    {
+      "id": 3,
+      "name": "Jane Fisher",
+      "status": "success",
+      "transactionDate": "date",
+      "age": "22",
+      "avatar": "https://i.pravatar.cc/150?u=a04258114e29026702d",
+      "email": "jane.fisher@example.com",
+      "amount": "15"
+    },
+    {
+      "id": 4,
+      "name": "William Howard",
+      "status": "failed",
+      "transactionDate": "date",
+      "age": "28",
+      "avatar": "https://i.pravatar.cc/150?u=a048581f4e29026701d",
+      "email": "william.howard@example.com",
+      "amount": "16"
+    },
+    {
+      "id": 5,
+      "name": "Kristen Copper",
+      "status": "success",
+      "transactionDate": "date",
+      "age": "24",
+      "avatar": "https://i.pravatar.cc/150?u=a092581d4ef9026700d",
+      "email": "kristen.cooper@example.com",
+      "amount": "17"
+    },
+    {
+      "id": 6,
+      "name": "Brian Kim",
+      "status": "failed",
+      "transactionDate": "date",
+      "age": "29",
+      "avatar": "https://i.pravatar.cc/150?u=a042581f4e29026024d",
+      "email": "brian.kim@example.com",
+      "amount": "15"
+    },
+    {
+      "id": 7,
+      "name": "Michael Hunt",
+      "status": "pending",
+      "transactionDate": "date",
+      "age": "27",
+      "avatar": "https://i.pravatar.cc/150?u=a042581f4e29027007d",
+      "email": "michael.hunt@example.com",
+      "amount": "15"
+    },
+    {
+      "id": 8,
+      "name": "Samantha Brooks",
+      "status": "success",
+      "transactionDate": "date",
+      "age": "31",
+      "avatar": "https://i.pravatar.cc/150?u=a042581f4e27027008d",
+      "email": "samantha.brooks@example.com",
+      "amount": "15"
+    },
+    {
+      "id": 9,
+      "name": "Frank Harrison",
+      "status": "failed",
+      "transactionDate": "date",
+      "age": "33",
+      "avatar": "https://i.pravatar.cc/150?img=4",
+      "email": "frank.harrison@example.com",
+      "amount": "15"
+    },
+    {
+      "id": 10,
+      "name": "Emma Adams",
+      "status": "success",
+      "transactionDate": "date",
+      "age": "35",
+      "avatar": "https://i.pravatar.cc/150?img=5",
+      "email": "emma.adams@example.com",
+      "amount": "15"
+    },
+    {
+      "id": 11,
+      "name": "Brandon Stevens",
+      "status": "success",
+      "transactionDate": "date",
+      "age": "22",
+      "avatar": "https://i.pravatar.cc/150?img=8",
+      "email": "brandon.stevens@example.com",
+      "amount": "15"
+    },
+    {
+      "id": 12,
+      "name": "Megan Richards",
+      "status": "pending",
+      "transactionDate": "date",
+      "age": "28",
+      "avatar": "https://i.pravatar.cc/150?img=10",
+      "email": "megan.richards@example.com",
+      "amount": "15"
+    },
+    {
+      "id": 13,
+      "name": "Oliver Scott",
+      "status": "success",
+      "transactionDate": "date",
+      "age": "37",
+      "avatar": "https://i.pravatar.cc/150?img=12",
+      "email": "oliver.scott@example.com",
+      "amount": "15"
+    },
+    {
+      "id": 14,
+      "name": "Grace Allen",
+      "status": "success",
+      "transactionDate": "date",
+      "age": "30",
+      "avatar": "https://i.pravatar.cc/150?img=16",
+      "email": "grace.allen@example.com",
+      "amount": "15"
+    },
+    {
+      "id": 15,
+      "name": "Noah Carter",
+      "status": "failed",
+      "transactionDate": "date",
+      "age": "31",
+      "avatar": "https://i.pravatar.cc/150?img=15",
+      "email": "noah.carter@example.com",
+      "amount": "15"
+    },
+    {
+      "id": 16,
+      "name": "Ava Perez",
+      "status": "success",
+      "transactionDate": "date",
+      "age": "29",
+      "avatar": "https://i.pravatar.cc/150?img=20",
+      "email": "ava.perez@example.com",
+      "amount": "15"
+    },
+    {
+      "id": 17,
+      "name": "Liam Johnson",
+      "status": "success",
+      "transactionDate": "date",
+      "age": "28",
+      "avatar": "https://i.pravatar.cc/150?img=33",
+      "email": "liam.johnson@example.com",
+      "amount": "15"
+    },
+    {
+      "id": 18,
+      "name": "Sophia Taylor",
+      "status": "success",
+      "transactionDate": "date",
+      "age": "27",
+      "avatar": "https://i.pravatar.cc/150?img=29",
+      "email": "sophia.taylor@example.com",
+      "amount": "15"
+    },
+    {
+      "id": 19,
+      "name": "Lucas Harris",
+      "status": "success",
+      "transactionDate": "date",
+      "age": "32",
+      "avatar": "https://i.pravatar.cc/150?img=50",
+      "email": "lucas.harris@example.com",
+      "amount": "15"
+    },
+    {
+      "id": 20,
+      "name": "Mia Robinson",
+      "status": "success",
+      "transactionDate": "date",
+      "age": "26",
+      "avatar": "https://i.pravatar.cc/150?img=45",
+      "email": "mia.robinson@example.com",
+      "amount": "15"
+    }
+  ]
+}

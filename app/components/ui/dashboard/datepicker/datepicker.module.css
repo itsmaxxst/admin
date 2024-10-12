@@ -1,0 +1,22 @@
+.date {
+    width: 100%;
+    margin-right: 10px;
+}
+
+.content {
+    margin: 4px 10px 2px 10px;
+}
+
+.datepicker {
+    display: flex;
+    background-color: var(--bgSoft) !important;
+    border-radius: 10px;
+}
+
+.input {
+    color: var(--textSoft) !important;
+}
+
+.datepicker:hover {
+    background-color: #2e374a !important;
+}
