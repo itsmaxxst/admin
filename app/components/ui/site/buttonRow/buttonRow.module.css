@@ -1,0 +1,31 @@
+.buttonContainer{
+    margin-left: 19.375rem;
+    margin-right: 19.375rem;
+    display: flex;
+    gap: 16px;
+}
+
+.button{
+    display: flex;
+    width: 19.5625rem;
+    padding: 35px 12px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    border: 2px solid var(--border);
+    color: white;
+    font-family: Manrope, sans-serif;
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    gap: 10px;
+    margin-top: 45px;
+    height: 6rem;
+}
+
+.button:focus{
+    background-color: var(--border);
+    color: black;
+}

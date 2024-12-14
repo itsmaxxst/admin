@@ -1,0 +1,35 @@
+.table{
+    color: black;
+    font-family: Manrope, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    border-collapse: collapse;
+    border: none;
+}
+
+.body{
+    color: white;
+    font-family: Manrope, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    border: none;
+}
+
+.row:nth-child(even) {
+    background-color: #403F38;
+    border: none;
+}
+
+.row:nth-child(odd) {
+    background-color: #313435;
+    border: none;
+}
+
+.wrapper{
+    padding: 0;
+    border: none;
+}

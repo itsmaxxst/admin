@@ -1,0 +1,47 @@
+.button{
+    width: 200px;
+    height: 39px;
+    flex-shrink: 0;
+    border-radius: 5px;
+    background-color: var(--border);
+    color: black;
+    font-family: Manrope, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.price{
+    color: black;
+    font-family: Manrope, sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.title{
+    color: black;
+    font-family: Manrope,sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.desc{
+    color: #A1A1A1;
+    font-family: Manrope,sans-serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.list{
+    color: black;
+    font-family: Manrope, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}

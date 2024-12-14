@@ -1,0 +1,40 @@
+.cardWrapper{
+    margin-left: 19.375rem;
+    margin-right: 19.375rem;
+    margin-top: 44px;
+}
+
+.headerContainer{
+    margin-top: 4%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.title{
+    font-family: Manrope, sans-serif;
+    color: white;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.showMore{
+    margin-top: 1%;
+    font-family: Manrope, sans-serif;
+    color: white;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.desc{
+    color: #9DA653;
+    font-family: Manrope, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+

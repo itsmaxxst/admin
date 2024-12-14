@@ -1,0 +1,38 @@
+.input {
+    background-color: black !important;
+    border: none;
+    color: var(--text) !important;
+    outline: none;
+    box-shadow: none !important;
+    font-family: Manrope, sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.input:focus {
+    outline: none;
+    background-color: black !important;
+}
+
+.inputWrapper:hover {
+    background-color: black !important;
+}
+
+.inputWrapper {
+    background-color: black !important;
+}
+
+.inputWrapper:focus {
+    background-color: black !important;
+}
+
+.absoluteInput {
+    position: absolute;
+    top: 50%;
+    right: -35px;
+    width: 20.1875rem;
+    transform: translateY(-50%);
+    z-index: 10;
+}

@@ -1,0 +1,19 @@
+.input{
+    background-color: #2e374a !important;
+    border: none;
+    color: var(--text);
+    outline: none;
+    box-shadow: none !important;
+}
+
+.input:focus {
+    outline: none;
+}
+
+.text{
+    color: var(--text);
+}
+
+.date{
+    background-color: #2e374a !important;
+}

@@ -1,0 +1,14 @@
+.base{
+    color: white;
+    font-family: Manrope, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 50% */
+    height: 30px;
+}
+
+.cursor{
+    background-color: #9DA653;
+    border:3px;
+}

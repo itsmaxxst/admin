@@ -1,0 +1,65 @@
+.cardWrapper{
+    margin-left: 19.375rem;
+    margin-right: 19.375rem;
+    margin-top: 44px;
+}
+
+.headerContainer{
+    margin-top: 4%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.base{
+    color: white;
+    font-family: Manrope, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.tabs{
+    --nextui-colors-warning: #9DA653;
+}
+
+.container{
+    padding: 27px 44px;
+    justify-content: space-between;
+    border-radius: 15px;
+    background: white !important;
+    display: flex;
+    width: 40.125rem;
+    height: 13rem;
+}
+
+.actorsWrapper{
+    gap: 20px;
+    flex-direction: column;
+    display: flex;
+    width: 40.125rem;
+    height: 13rem;
+}
+
+.title{
+    color: white;
+    font-family: Manrope, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.roles{
+    color: #9DA653;
+    font-family: Manrope, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.cursor{
+    background-color: #9DA653;
+    border:3px;
+}

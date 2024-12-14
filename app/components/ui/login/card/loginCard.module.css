@@ -1,0 +1,122 @@
+.container {
+    width: 557px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    background: white;
+    position: absolute;
+    margin-left: 700px;
+    margin-top: 332px;
+    padding: 46px 59px 80px 57px;
+    display: flex;
+    gap: 50px;
+}
+
+.title{
+    color: black;
+    font-family: Manrope, sans-serif;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 30px;
+    letter-spacing: 0.2px;
+}
+
+.input{
+    display: inline-flex;
+    flex-shrink: 1;
+    width: 100%;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    box-shadow: none !important;
+}
+
+.button{
+    display: inline-flex;
+    height: 54px;
+    width: 100%;
+    gap: 8px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: var(--border);
+    color: black;
+    font-family: Manrope, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px; /* 150% */
+    letter-spacing: 0.2px;
+}
+
+.text{
+    color: black;
+    font-family: Manrope, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px; /* 150% */
+    letter-spacing: 0.2px;
+}
+
+.footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    gap: 25px;
+}
+
+.input:focus{
+    outline: none;
+    background-color: transparent !important;
+}
+
+.inputWrapper {
+    background-color: rgba(157, 166, 83, 0.30);
+    width: 100%;
+    outline: none;
+    border: none;
+    box-shadow: none !important;
+}
+
+.inputWrapper:focus {
+    outline: none;
+    background-color: transparent !important;
+}
+
+
+.inputContainer{
+    display: flex;
+    height: 54px;
+    justify-content: center;
+    color: black;
+    font-family: Manrope, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px; /* 150% */
+    letter-spacing: 0.2px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.radio{
+    background-color: white;
+    height: 30px;
+    width: 30px;
+}
+
+.selected{
+    background-color: #9DA653;
+    padding: 30px;
+    height: 30px;
+    width: 30px;
+}

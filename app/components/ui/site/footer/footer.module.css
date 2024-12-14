@@ -1,0 +1,95 @@
+.title{
+    color: black;
+    font-family: Manrope,sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.text{
+    color: black;
+    font-family: Manrope,sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 7%;
+}
+.footerContainer {
+    margin-left: 19.375rem;
+    margin-right: 19.375rem;
+    padding-top: 4%;
+}
+
+.column {
+    flex: 1;
+    margin-left: -1%;
+}
+
+.footerWrapper{
+    display: flex;
+    justify-content: space-between;
+}
+
+.applications{
+    display: flex;
+    margin-top: 5%;
+    flex-direction: column;
+}
+
+.google{
+    width: 247px;
+    height: 86px;
+    flex-shrink: 0;
+    background: url("https://s3-alpha-sig.figma.com/img/5e89/3756/7a214cdbfbcf0c639b37d3b8e69bbc88?Expires=1730073600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=oX6M9V-zpnHAKoeTz7A7ZaThk0bgOw-G4V4i1s8vJvJBNs65R6KMFvPZsilXwMtUWXcc2-5G7fQe2a2bu60wZK2sd86qvHo7wflAJ3HeyVgWaVDYoimNNax-ExwAs4j9vMpAc-OKIZ4mbyQYa4xn8zDOudW~IsBeQKm7Vcyo6NfPUg0oCg6dczzhxONuVT2uBSfWV7xCaLxKS0x96H1p5g5GFPLpHFO0haWUPZApQ0oFAMNMJ1x-l5FlL4InhFqGV1bjQKuFxMy73gVmCbkyK-xAiDs~WIh-eOy5ECRX8SOzMmcwFSgdteEs96g-1zPsCAHiME6vBIQ4M5QQmpoZOQ__") transparent -15px -10.793px / 112.551% 125.099% no-repeat;
+
+}
+
+.huawei{
+    width: 257px;
+    height: 79px;
+    flex-shrink: 0;
+    background: url("https://s3-alpha-sig.figma.com/img/ca60/1996/7c89a594945de3c3398706a8b7dc7832?Expires=1730073600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=ccz8hJ~MPON5GWT1Ueo5Z95w24DCwCtJmIl9sA61kf0herFn4zkh0l5jF1rovsuv2W9vXeI-dTexGh4qJTclYTQT2Pud29IgVN2eXM2ruu2T-nbl5zR5huF3r1DMOjOJe5PPPtNQ3YwVG2MmdrVgBrnix-nuD~AIniU6Os7ZQ-saUS8CzITqV08OxCypUaki6O3~LEHCfhsUdJ5Oxhpq~AQieyx7qh6IcLnX6-VrBJ0vUtTjbO0A2Wl625CLDnqCqJTuvWw~NEILyXKR3C6kot~P8S78KCQ6~g-H0xPUqG4aIn0cUzPXd9xEiAjJPH7QMhNGVcX5UXSU0Xv7B3yftQ__") transparent -13.741px -15.8px / 111.336% 141.053% no-repeat;
+}
+
+.apple{
+    width: 242px;
+    height: 79px;
+    flex-shrink: 0;
+    background: url("https://s3-alpha-sig.figma.com/img/43d0/3555/d6e1fb7f15351ae6b948cc9ce2d3f0db?Expires=1730073600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=CtsilR68Ou6WcdydE3RY~Lnen4hFmKkCmTEalo8M9S18qQJTr8zGzUJALl9QHhA9B7hSA-2nnmjEN9crHuOqFHvGFjygP~WmtsU1dLwDGd6T8cbqiwEEgRz4rNiO03-nQ4sjeMS44kMezVumSHcmMkO4a3u2HIZ4ojBgEbNUlPcsH6q3ZUprCougMcAdwnWf-TLkQMrYtBOaYS3b9~MvQkyqmvoUIF83syrqe2VfB87ftQDe5Ki1sY-G-590EGwwvlx~QexwqFqk9P06OFrFUXJL5dy~GN4Egs82C1KukiI-o2~WbeurM3ENj6PkA~Vo71CTrx-XvYV27fybRWgRfw__") transparent 0px -82.911px / 100% 308.911% no-repeat;
+}
+
+.applicationsWrapper{
+    display: flex;
+    gap: 75px;
+    height: 86px;
+    margin-left: -1%;
+    margin-top: 2%;
+    align-items: center;
+}
+
+.iconsWrapper{
+    margin-top: 6%;
+    display: flex;
+    gap: 75px;
+    align-items: center;
+}
+
+.iconItem{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.iconBg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 45%;
+    left: 45%;
+    transform: translate(-80%,-80%);
+    z-index: -1;
+}
