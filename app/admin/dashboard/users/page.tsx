@@ -21,6 +21,7 @@ export default function UsersPage() {
             .catch(() => {
                 setError("Error table data loading");
                 setLoading(false);
+                console.log(error);
             });
     }, []);
 
@@ -28,16 +29,7 @@ export default function UsersPage() {
         return <div>Loading...</div>;
     }
 
-    if (error) {
-        return <div className={styles.wrapper}>
-            <div className={styles.main}>
-                <DatePicker/>
-                <Divider className={styles.divider}/>
-                <div>{error}</div>
-                <Divider className={styles.divider}/>
-            </div>
-        </div>
-    }
+
     return (
         <div className={styles.wrapper}>
             <div className={styles.main}>
@@ -49,10 +41,10 @@ export default function UsersPage() {
                     statusOptions={statusOptions}
                     iconTooltips={Icons}
                     title="Users"
-                    hidden={false}
+                    hidden={true}
                     subTitle="users"
                 />
             </div>
-            </div>
+        </div>
     );
 }

@@ -40,7 +40,7 @@ export default function DashboardPage() {
                             icon={item.icon}
                             title={item.title}
                             note={item.title}
-                            data={`Data ${item.title}`}
+                            data={`Дані про ${item.title}`}
                         />
                     ))}
                 </div>

@@ -4,7 +4,7 @@ import styles from "@/app/components/ui/dashboard/dashboard.module.css"
 import TableTemplate, {Data} from "@/app/components/ui/dashboard/tableTemplate/tableTemplate";
 import DatePicker from "@/app/components/ui/dashboard/datepicker/datepicker";
 import { Divider } from "@nextui-org/divider";
-import { columns, statusOptions } from "@/data/json/users.json";
+import { columns, statusOptions } from "@/data/json/films.json";
 import axios from "axios";
 import Icons from "@/data/mapping/usersTableIcons"
 
@@ -21,22 +21,12 @@ export default function FilmsPage() {
             .catch(() => {
                 setError("Error table data loading");
                 setLoading(false);
+                console.log(error);
             });
     }, []);
 
     if (loading) {
         return <div>Loading...</div>;
-    }
-
-    if (error) {
-        return <div className={styles.wrapper}>
-            <div className={styles.main}>
-                <DatePicker/>
-                <Divider className={styles.divider}/>
-                <div>{error}</div>
-                <Divider className={styles.divider}/>
-            </div>
-        </div>
     }
     return (
         <div className={styles.wrapper}>

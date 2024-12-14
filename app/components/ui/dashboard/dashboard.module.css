@@ -7,6 +7,7 @@
     padding: 20px;
 }
 .content{
+    background-color: var(--bg);
     flex: 4;
     padding: 20px;
 }
@@ -37,4 +38,9 @@
 
 .divider{
     border: 2px solid var(--bgSoft);
+}
+
+.admin{
+    color: var(--text);
+    background: var(--bg);
 }

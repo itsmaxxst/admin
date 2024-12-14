@@ -8,6 +8,10 @@
   --text: white;
   --textSoft: #b7bac1;
   --bgHover: #2e374a;
+  --bgMainContainer: #202427;
+  --bgFooter: #F1EA76;
+  --border: #E1F266;
+  --description: #A1A1A1;
 }
 
 *{
@@ -16,13 +20,34 @@
   box-sizing: border-box;
 }
 
-body {
-  color: var(--text);
-  background: var(--bg);
-}
-
 a{
   color: inherit;
   text-decoration: none;
+}
+
+/* inter-700 - cyrillic_cyrillic-ext_latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/data/fonts/inter-v18-cyrillic_cyrillic-ext_latin_latin-ext-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* manrope-regular - cyrillic_cyrillic-ext_latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/data/fonts/manrope-v15-cyrillic_cyrillic-ext_latin_latin-ext-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Catenary Stamp';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://db.onlinewebfonts.com/t/ecf3578ed84d761c6c40d7bd40209e1d.woff2")format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 

@@ -7,7 +7,7 @@ import data from "@/data/json/recap_data.json"
 const Chart:React.FC = () =>{
     return (
         <div className={styles.container}>
-            <h2 className={styles.title}>Weekly recap</h2>
+            <h2 className={styles.title}>Дані за цей тиждень</h2>
             <ResponsiveContainer width="100%" height="90%">
                 <LineChart
                     width={500}

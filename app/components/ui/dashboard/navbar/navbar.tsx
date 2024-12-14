@@ -6,7 +6,7 @@ import {
     Input,
 } from "@nextui-org/react";
 import navBarItems, { NavBarSection } from "@/data/mapping/navBarItems";
-import { SearchIcon } from "@/app/components/ui/dashboard/navbar/public/SearchIcon";
+import { SearchIcon } from "@/data/public/SearchIcon";
 import { usePathname } from "next/navigation";
 import styles from "@/app/components/ui/dashboard/navbar/navbar.module.css";
 import React from "react";
@@ -28,7 +28,7 @@ const NavbarComponent: React.FC = () => {
                                 input: styles.input,
                                 inputWrapper: styles.inputWrapper,
                             }}
-                            placeholder="Search..."
+                            placeholder="Пошук"
                             size="sm"
                             startContent={
                                 <SearchIcon size={18} width={15} height={15} color="black" />

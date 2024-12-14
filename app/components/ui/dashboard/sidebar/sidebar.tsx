@@ -10,8 +10,8 @@ const Sidebar:React.FC = () => {
           <div className={styles.user}>
               <Image className={styles.userImage} height={50} width={50} src="/noavatar.png" alt={""} />
               <div className={styles.userDetail}>
-                  <span className={styles.userName}>Name</span>
-                  <span className={styles.userRole}>Role</span>
+                  <span className={styles.userName}>Нікнейм</span>
+                  <span className={styles.userRole}>Роль</span>
               </div>
           </div>
         <ul className={styles.list}>

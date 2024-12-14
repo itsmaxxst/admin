@@ -3,7 +3,6 @@ import { //icons
     MdSupervisedUserCircle,
     MdAttachMoney,
     MdWork,
-    MdAnalytics,
     MdOutlineSettings,
     MdCameraRoll,
     MdLogout,
@@ -24,54 +23,49 @@ export interface MenuSection { //typification
 
 const menuItems: MenuSection[] = [
     {
-        title: "Pages",
+        title: "Сторінки",
         list: [
             {
-                title: "Dashboard",
+                title: "Головна",
                 path: "/dashboard",
                 icon: <MdDashboard />,
             },
             {
-                title: "Users",
+                title: "Користувачі",
                 path: "/dashboard/users",
                 icon: <MdSupervisedUserCircle />,
             },
             {
-                title: "Films",
+                title: "Фільми",
                 path: "/dashboard/films",
                 icon: <MdCameraRoll />,
             },
             {
-                title: "Transactions",
+                title: "Транзакції",
                 path: "/dashboard/transactions",
                 icon: <MdAttachMoney />,
             },
         ],
     },
     {
-        title: "Analytics",
+        title: "Аналітика",
         list: [
             {
-                title: "Revenue",
+                title: "Прибуток",
                 path: "/dashboard/revenue",
                 icon: <MdWork />,
-            },
-            {
-                title: "Reports",
-                path: "/dashboard/reports",
-                icon: <MdAnalytics />,
-            },
+            }
         ],
     },
     {
-        title: "User",
+        title: "Користувач",
         list: [
             {
-                title: "Settings",
+                title: "Налаштування",
                 path: "/dashboard/settings",
                 icon: <MdOutlineSettings />,
             },{
-                title: "Logout",
+                title: "Вийти",
                 path: "/dashboard/logout",
                 icon: <MdLogout />,
             },

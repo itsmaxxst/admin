@@ -20,7 +20,8 @@ import {
     Selection,
     ChipProps,
     SortDescriptor,
-    Tooltip
+    Tooltip,
+    Link
 } from "@nextui-org/react";
 
 import { ChevronDownIcon } from "@/data/public/ChevronDownIcon";
@@ -51,6 +52,12 @@ export interface Data {
     registrationDate?: string;
     amount?: string;
     transactionDate?: string;
+    releaseDate?: string;
+    year?: string;
+    country?: string;
+    type?: string;
+    genre?: string;
+
 }
 
 export interface IconTooltip {
@@ -77,9 +84,10 @@ const statusColorMap: Record<string, ChipProps["color"]> = {
     banned: "danger",
     visible: "success",
     hidden: "warning",
+    planned: "secondary",
 };
 
-const INITIAL_VISIBLE_COLUMNS = ["name", "registrationDate", "transactionDate", "status", "amount", "actions"];
+const INITIAL_VISIBLE_COLUMNS = ["name", "registrationDate", "transactionDate", "status", "amount", "actions", "genre", "type"];
 
 export default function TableTemplate({ columns, data, statusOptions, iconTooltips, title, hidden, subTitle }: TableTemplateProps) {
     const [filterValue, setFilterValue] = React.useState("");
@@ -325,9 +333,11 @@ export default function TableTemplate({ columns, data, statusOptions, iconToolti
                                 ))}
                             </DropdownMenu>
                         </Dropdown>
-                        <Button color="primary" isDisabled={hidden} endContent={<PlusIcon height={24} width={24}/>}>
-                            Add New
-                        </Button>
+                        <Link href={"/admin/dashboard/films/add"}>
+                            <Button color="primary" isDisabled={hidden} endContent={<PlusIcon height={24} width={24}/>}>
+                                Add New
+                            </Button>
+                        </Link>
                     </div>
                 </div>
                 <div className="flex justify-between items-center">
@@ -421,7 +431,7 @@ export default function TableTemplate({ columns, data, statusOptions, iconToolti
                     </TableColumn>
                 )}
             </TableHeader>
-            <TableBody emptyContent={"No users found"} items={sortedItems}>
+            <TableBody emptyContent={"No data found"} items={sortedItems}>
                 {(item) => (
                     <TableRow key={item.id}>
                         {(columnKey) => <TableCell>{renderCell(item, columnKey)}</TableCell>}

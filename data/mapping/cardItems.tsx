@@ -21,17 +21,17 @@ const cardItems: CardSection[] = [
         title: "Card",
         list:[
             {
-                title:"Users",
+                title:"Користувачі",
                 //path: "/chat",
                 icon: <MdSupervisedUserCircle size={24} />,
             },
             {
-                title:"Subscriptions",
+                title:"Підписки",
                 //path: "",
                 icon: <MdMonetizationOn size={24}/>,
             },
             {
-                title:"Views",
+                title:"Перегляди",
                 //path: "",
                 icon: <MdAutoGraph size={24} />,
             },

@@ -9,7 +9,8 @@ interface LayoutProps {
 
 const Layout = ({children}:LayoutProps) => { //children typification
   return(
-      <div className={styles.container}>
+      <body className={styles.admin}>
+        <div className={styles.container}>
           <div className={styles.menu}>
               <Sidebar/>
           </div>
@@ -17,7 +18,8 @@ const Layout = ({children}:LayoutProps) => { //children typification
               <NavbarComponent/>
               {children}
           </div>
-      </div>
+        </div>
+      </body>
   )
 }
 export default Layout;

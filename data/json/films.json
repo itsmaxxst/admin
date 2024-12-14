@@ -2,15 +2,16 @@
   "columns": [
     { "name": "ID", "uid": "id", "sortable": true },
     { "name": "NAME", "uid": "name", "sortable": true },
-    { "name": "AGE", "uid": "age", "sortable": true },
-    { "name": "REGISTRATION DATE", "uid": "registrationDate", "sortable": true },
-    { "name": "EMAIL", "uid": "email" },
+    { "name": "COUNTRY", "uid": "country", "sortable": true },
+    { "name": "RELEASE DATE", "uid": "releaseDate", "sortable": true },
     { "name": "STATUS", "uid": "status", "sortable": true },
+    { "name": "GENRE", "uid": "genre", "sortable": true },
+    { "name": "TYPE", "uid": "type" },
     { "name": "ACTIONS", "uid": "actions" }
   ],
   "statusOptions": [
     { "name": "Active", "uid": "active" },
     { "name": "Inactive", "uid": "inactive"},
-    { "name": "Banned", "uid": "banned" }
+    { "name": "Planned", "uid": "planned" }
   ]
 }

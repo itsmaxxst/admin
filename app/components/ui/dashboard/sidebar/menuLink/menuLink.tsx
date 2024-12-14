@@ -14,11 +14,11 @@ interface MenuLinkProps {
     item: MenuItem;
 }
 
-export default function MenuLink({item}:MenuLinkProps) { //typification
+export default function MenuLink({item}:MenuLinkProps) {
     const pathName = usePathname()
     console.log(pathName);
   return (
-      <Link href={item.path} className={`${styles.container} ${pathName === item.path && styles.active}`}>
+      <Link href={`/admin${item.path}`} className={`${styles.container} ${pathName === item.path && styles.active}`}>
           {item.icon}
           {item.title}
       </Link>
