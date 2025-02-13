@@ -1,9 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import jwt from 'jsonwebtoken';
 
-// Секреты и настройки (лучше хранить в .env)
-const ACCESS_TOKEN_SECRET = process.env.ACCESS_TOKEN_SECRET || 'access_secret';
-const REFRESH_TOKEN_SECRET = process.env.REFRESH_TOKEN_SECRET || 'refresh_secret';
+const ACCESS_TOKEN_SECRET : string = process.env.ACCESS_TOKEN_SECRET || 'access_secret';
+const REFRESH_TOKEN_SECRET : string = process.env.REFRESH_TOKEN_SECRET || 'refresh_secret';
 
 const generateTokens = (userId: string) => {
     const accessToken = jwt.sign({ userId }, ACCESS_TOKEN_SECRET, { expiresIn: '15m' });
@@ -17,7 +16,6 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     if (method === 'POST') {
         const { username, password } = req.body;
 
-        // Пример валидации (в реальном приложении - база данных)
         if (username === 'user' && password === 'password') {
             const tokens = generateTokens('user123');
             res.setHeader('Set-Cookie', `refreshToken=${tokens.refreshToken}; HttpOnly; Path=/; Max-Age=604800`);
@@ -30,8 +28,12 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     if (method === 'GET') {
         const { refreshToken } = req.cookies;
 
+        if (!refreshToken) {
+            return res.status(401).json({ message: "No refresh token provided" });
+        }
+
         try {
-            const decoded: any = jwt.verify(refreshToken, REFRESH_TOKEN_SECRET);
+            const decoded = jwt.verify(refreshToken, REFRESH_TOKEN_SECRET as string) as {userId:string};
             const tokens = generateTokens(decoded.userId);
             res.setHeader('Set-Cookie', `refreshToken=${tokens.refreshToken}; HttpOnly; Path=/; Max-Age=604800`);
             return res.status(200).json({ accessToken: tokens.accessToken });

@@ -10,6 +10,16 @@ interface Card {
     desc: string;
 }
 
+interface ApiItem {
+    id: string;
+    thumbnail?: string;
+    imagePath?: string;
+    name: string;
+    tags?: { name: string }[];
+    releaseYear: number;
+}
+
+
 interface DynamicRowTitleProps {
     title: string;
     tagId: string;
@@ -18,12 +28,11 @@ interface DynamicRowTitleProps {
     marginTop?: string;
     gap: string;
     num: number;
-    total: number;
     width: string;
     height?: string;
 }
 
-const DynamicRowTitle: React.FC<DynamicRowTitleProps> = ({title, height, tagId, description, hidden, marginTop, gap, num, total, width,}) => {
+const DynamicRowTitle: React.FC<DynamicRowTitleProps> = ({title, height, tagId, description, hidden, marginTop, gap, num, width,}) => {
     const [cards, setCards] = useState<Card[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [hasError, setHasError] = useState(false);
@@ -31,12 +40,12 @@ const DynamicRowTitle: React.FC<DynamicRowTitleProps> = ({title, height, tagId, 
     useEffect(() => {
         const fetchCards = async () => {
             try {
-                setIsLoading(true); // Устанавливаем загрузку
-                setHasError(false); // Сбрасываем ошибки
+                setIsLoading(true);
+                setHasError(false);
                 const response = await fetch(`${API_BASE_URL}${tagId}?pageNumber=1&pageSize=20`);
                 const data = await response.json();
                 if (data.isSuccess) {
-                    const formattedCards: Card[] = data.data.map((item) => ({
+                    const formattedCards: Card[] = data.data.map((item:ApiItem) => ({
                         id: item.id,
                         img: item.thumbnail || item.imagePath,
                         title: item.name,
@@ -71,7 +80,6 @@ const DynamicRowTitle: React.FC<DynamicRowTitleProps> = ({title, height, tagId, 
                             marginTop={marginTop}
                             gap={gap}
                             num={num}
-                            total={total}
                             width={width}
                             isLoading={isLoading}
                         />

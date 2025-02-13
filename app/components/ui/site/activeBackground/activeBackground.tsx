@@ -1,5 +1,4 @@
 "use client"
-import { useState } from "react";
 import classNames from "classnames";
 import styles from "@/app/components/ui/site/activeBackground/activeBackground.module.css"
 

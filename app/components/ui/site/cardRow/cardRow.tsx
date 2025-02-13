@@ -1,5 +1,4 @@
 "use client";
-
 import styles from "@/app/components/ui/site/cardRow/cardRow.module.css";
 import React, {lazy, Suspense, useState} from "react";
 import {Button, Skeleton} from "@nextui-org/react";
@@ -10,7 +9,6 @@ const CardComponent = lazy(() => import("@/app/components/ui/site/card/card"));
 interface CardRowProps {
     gap: string;
     num: number;
-    total: number;
     width: string;
     hidden: boolean;
     cards: { id: string; img: string; title: string; desc?: string }[];
@@ -26,7 +24,6 @@ export default function CardRow({
                                     width,
                                     hidden,
                                     height,
-                                    total,
                                     cards = [],
                                 }: CardRowProps) {
     const [startIndex, setStartIndex] = useState(0);
@@ -36,7 +33,7 @@ export default function CardRow({
     };
 
     const handleNext = () => {
-        setStartIndex((prev) => Math.min(prev + num, total - num));
+        setStartIndex((prev) => Math.min(prev + num, cards.length - num));
     };
 
     const visibleCards = Array.isArray(cards)
@@ -127,7 +124,7 @@ export default function CardRow({
                                                 top: "35%",
                                                 right: "-1.5%",
                                                 visibility:
-                                                    startIndex + num >= total ? "hidden" : "visible",
+                                                    startIndex + num >= cards.length ? "hidden" : "visible",
                                             }}
                                         >
                                             <MdArrowForwardIos/>

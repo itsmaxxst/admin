@@ -9,6 +9,11 @@ import styles from "@/app/components/ui/site/site.module.css"
 import API_BASE_URL from "@/app/api/apiConfig";
 const DynamicRowTitle = lazy(()=> import("@/app/components/ui/site/dynamicRowTitle/dynamicRowTitle"));
 
+interface Banner {
+    imageUrl: string;
+    displayOrder: number;
+}
+
 export default function HomePage() {
     const [bannerUrl, setBannerUrl] = useState("");
     const [activePage, setActivePage] = useState(1);
@@ -22,7 +27,8 @@ export default function HomePage() {
                 const response = await fetch(`${API_BASE_URL}/api/v1/banner/active`);
                 const data = await response.json();
                 if (data.isSuccess && data.data.length > 0) {
-                    const topBanner = data.data.sort((a, b) => a.displayOrder - b.displayOrder)[activePage - 1];
+                    const banners: Banner[] = data.data;
+                    const topBanner = banners.sort((a,b) => a.displayOrder - b.displayOrder)[activePage - 1];
                     setBannerUrl(topBanner.imageUrl);
                     console.log("Баннер успішно завантажився")
                 }
@@ -90,7 +96,6 @@ export default function HomePage() {
                                  description={"Показати більше"}
                                  gap={"1rem"}
                                  num={6}
-                                 total={20}
                                  width={"202px"}
                                  tagId={"/api/v1/mediaitem/movies/tag/11"}
                 />
@@ -101,7 +106,6 @@ export default function HomePage() {
                                  marginTop={"-0.3%"}
                                  gap={"1rem"}
                                  num={6}
-                                 total={20}
                                  width={"202px"}
                                  tagId={"/api/v1/mediaitem/movies/tag/10"}/>
 
@@ -111,7 +115,6 @@ export default function HomePage() {
                                  marginTop={"-0.5%"}
                                  gap={"16px"}
                                  num={3}
-                                 total={3}
                                  width={"421px"}
                                  tagId={"/api/v1/personimage/person/739365c6-77e7-4957-9554-17a89c6e6e15"}/>
 
@@ -122,7 +125,6 @@ export default function HomePage() {
                                  marginTop={"-0.5%"}
                                  gap={"1rem"}
                                  num={6}
-                                 total={20}
                                  width={"202px"}
                                  tagId={"/api/v1/mediaitem/movies/tag/8"}/>
 
@@ -133,7 +135,6 @@ export default function HomePage() {
                                  marginTop={"-0.5%"}
                                  gap={"1rem"}
                                  num={6}
-                                 total={20}
                                  width={"202px"}
                                  tagId={"/api/v1/mediaitem/movies/tag/20"}/>
             </Suspense>

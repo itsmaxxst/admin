@@ -2,35 +2,32 @@
 import styles from "@/app/components/ui/site/cardRow/cardRow.module.css";
 import CardComponent from "@/app/components/ui/site/card/card";
 
-interface cardRowProps {
+interface bonusRowProps {
     gap: string;
     num: number;
-    total: number;
     width: string;
     height?: string;
-    img: string;
     hidden: boolean;
-    title?: string;
-    desc?: string;
+    startIndex: number;
+    bonusCards: { id: string; img: string; title?: string; desc?: string }[];
     onPrev: () => void;
     onNext: () => void;
-    startIndex: number;
 }
-export default function CardRow({gap, num, width, img, hidden, total, title, desc, startIndex, height}: cardRowProps){
-    const cardsArray = Array(total).fill(null);
-    const visibleCards = cardsArray.slice(startIndex, startIndex + num);
+export default function BonusRow({gap, num, width, hidden, startIndex, height, bonusCards}: bonusRowProps){
+    const visibleCards = bonusCards.slice(startIndex, startIndex + num);
     return (
         <div className={styles.carouselWrapper}>
             <div style={{gap: gap}} className={styles.cardContainer}>
-                {visibleCards.map((_, index) => (
+                {visibleCards.map((card) => (
                     <CardComponent
+                        id={card.id}
                         height={height}
                         hidden={hidden}
                         width={width}
-                        key={index + startIndex}
-                        img={img}
-                        title={title}
-                        description={desc}
+                        key={card.id}
+                        img={card.img}
+                        title={card.title}
+                        description={card.desc}
                     />
                 ))}
             </div>

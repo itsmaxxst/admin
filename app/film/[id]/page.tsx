@@ -10,9 +10,39 @@ import DynamicRowTitle from "@/app/components/ui/site/dynamicRowTitle/dynamicRow
 import { useEffect, useState } from "react";
 import API_BASE_URL from "@/app/api/apiConfig";
 
-export default function FilmPage ({params}:{params:{id:string}}) {
-    const [filmData, setFilmData] = useState<any>(null);
-    const [error, setError] = useState<string | null>(null);
+interface BonusCard {
+    id: string;
+    thumbnailUrl: string | null;
+    name: string | null;
+    description: string | null;
+}
+
+interface FilmData {
+    name: string;
+    firstAirDate: string;
+    roles: { personName: string; role: string }[];
+    attachments: Attachment[];
+    tags: Tag[];
+    description: string;
+}
+
+interface Role {
+    personName: string;
+    role: string;
+}
+
+interface Attachment {
+    attachmentType: number;
+    attachmentUrl: string;
+}
+
+interface Tag {
+    name: string;
+}
+
+export default function FilmPage ({params}: {params: {id: string}}) {
+    const [filmData, setFilmData] = useState<FilmData|null>(null);
+    const [bonusCards, setBonusCards] = useState<{ id: string; img: string; title?: string; desc?: string }[]>([]);
 
     const fetchFilmData = async () => {
         try {
@@ -21,36 +51,52 @@ export default function FilmPage ({params}:{params:{id:string}}) {
                 throw new Error(`Помилка ${response.status}: ${response.statusText}`);
             }
             const data = await response.json();
-            setFilmData(data.data); // Сохраняем данные фильма
-        } catch (err: any) {
-            console.error("Помилка при завантаженні фільма:", err);
-            setError(err.message || "Помилка");
+            setFilmData(data.data);
+        } catch {
+            console.error("Помилка при завантаженні фільма:");
+        }
+    };
+
+    const fetchBonusContent = async () => {
+        try {
+            const response = await fetch(`${API_BASE_URL}/api/v1/mediaitem/${params.id}/bonus`);
+            if (!response.ok) {
+                throw new Error(`Помилка ${response.status}: ${response.statusText}`);
+            }
+            const data = await response.json();
+            const formattedBonusCards = data.data.map((item: BonusCard) => ({
+                id: item.id,
+                img: item.thumbnailUrl || "https://img.freepik.com/premium-photo/abstract-white-background-stone-old-texture-background-conceptual-wall-background_721263-1479.jpg?semt=ais_hybrid",
+                title: item.name || "Без назви",
+                desc: item.description || "",
+            }));
+            setBonusCards(formattedBonusCards);
+        } catch {
+            console.error("Помилка при завантаженні бонусного контенту:");
+            setBonusCards([]);
         }
     };
 
     useEffect(() => {
         if (params.id) {
             fetchFilmData();
+            fetchBonusContent();
         }
     }, [params.id]);
-
-    if (error) {
-        return <div>Ошибка: {error}</div>;
-    }
 
     const firstAirDate = filmData?.firstAirDate
         ? new Date(filmData.firstAirDate).getFullYear()
         : "";
 
-    const actorsAndRoles = filmData?.roles?.map((role: any) => {
+    const actorsAndRoles:[string, string][] = filmData?.roles?.map((role: Role) => {
         return [role.personName, role.role];
     }) || [];
 
     const attachmentUrl =
-        filmData?.attachments.find((att: any) => att.attachmentType === 0)
+        filmData?.attachments.find((att: Attachment) => att.attachmentType === 0)
             ?.attachmentUrl || "";
 
-    const tags = filmData?.tags.map((tag: any) => tag.name).join("/ ");
+    const tags = filmData?.tags.map((tag: Tag) => tag.name).join("/ ");
 
     return(
         <body style={{height:'169.9375rem', width:'1920px', position:'relative'}}>
@@ -81,18 +127,18 @@ export default function FilmPage ({params}:{params:{id:string}}) {
                            actorsAndRoles={actorsAndRoles}
                            marginTop={"0rem"}
                            num={3}
-                           total={5}
                            width={"421px"}
                            hidden={false}
-                           img={"https://aboffs.com/cdn/shop/products/2120-40-smokegray_4344b2e2-af23-44e3-a58b-e2412e8441ef_2000x.png?v=1587097468"}
+                           bonusCards={bonusCards}
             />
-            <DynamicRowTitle title={"Ось що вам може сподобатись!"} height={"275px"}
-                      marginTop={"9rem"}
-                      hidden={false}
-                      gap={"20px"}
-                      num={6}
-                      total={6}
-                      width={"200px"} tagId={"/api/v1/mediaitem/movies/tag/10"}/>
+            <DynamicRowTitle title={"Ось що вам може сподобатись!"}
+                             height={"275px"}
+                             marginTop={"9rem"}
+                             hidden={false}
+                             gap={"20px"}
+                             num={6}
+                             width={"200px"}
+                             tagId={"/api/v1/mediaitem/movies/tag/10"}/>
         </main>
         <footer style={{height: '39.375rem', backgroundColor: 'var(--bgFooter)', position:'relative'}}>
             <Footer/>

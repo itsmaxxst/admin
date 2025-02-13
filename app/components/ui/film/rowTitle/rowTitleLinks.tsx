@@ -1,7 +1,7 @@
 "use client"
 import styles from "@/app/components/ui/film/rowTitle/rowTitleLinks.module.css"
 import {Button, Tabs, Tab} from "@nextui-org/react";
-import CardRow from "@/app/components/ui/film/cardRow/cardRow";
+import BonusRow from "@/app/components/ui/film/bonusRow/bonusRow";
 import AvatarComponent from "@/app/components/ui/film/avatarComponent/avatarComponent"
 import {LeftArrow} from "@/data/public/LeftArrow";
 import {RightArrow} from "@/data/public/RightArrow";
@@ -9,29 +9,34 @@ import React, { useState } from "react";
 
 interface rowTitleLinksProps {
     marginTop?: string;
+    bonusCards: { id: string; img: string; title?: string; desc?: string }[];
     gap: string;
     num: number;
-    total: number;
     width: string;
     height?: string;
-    img: string;
     hidden: boolean;
-    footerTitle?: string;
-    footerDesc?: string;
     actorsAndRoles?: [string, string][];
 }
 
-export default function RowTitleLinks({actorsAndRoles=[], marginTop, gap, num, width, img, hidden, total, footerTitle, footerDesc, height}: rowTitleLinksProps){
+export default function RowTitleLinks({
+                                          actorsAndRoles=[],
+                                          bonusCards=[],
+                                          marginTop,
+                                          gap,
+                                          num,
+                                          width,
+                                          hidden,
+                                          height}: rowTitleLinksProps){
     const [startIndex, setStartIndex] = useState(0);
 
     const handlePrev = () => {
         setStartIndex((prev) => Math.max(prev - num, 0));
     };
     const handleNext = () => {
-        setStartIndex((prev) => Math.min(prev + num, total - num));
+        setStartIndex((prev) => Math.min(prev + num, bonusCards.length - num));
     };
 
-    const actors = actorsAndRoles.filter(([name, role]) => role === "Actor");
+    const actors = actorsAndRoles.filter(([role]) => role === "Actor");
 
     return (
         <div className={styles.cardWrapper} style={{marginTop: marginTop, zIndex: '3'}}>
@@ -45,7 +50,7 @@ export default function RowTitleLinks({actorsAndRoles=[], marginTop, gap, num, w
                                 <Button isIconOnly style={{background:"transparent"}} onClick={handlePrev}><LeftArrow/></Button>
                                 <Button isIconOnly style={{background:"transparent"}} onClick={handleNext}><RightArrow/></Button>
                             </div>
-                            <CardRow height={height} total={total} gap={gap} num={num} width={width} img={img} hidden={hidden} title={footerTitle} desc={footerDesc} onNext={handleNext} onPrev={handlePrev} startIndex={startIndex}/>
+                            <BonusRow bonusCards={bonusCards} height={height} gap={gap} num={num} width={width} hidden={hidden} onNext={handleNext} onPrev={handlePrev} startIndex={startIndex}/>
                         </Tab>
                         <Tab title={"Команда та актори"}>
                             <div style={{display:"flex", justifyContent:"space-between", gap:"60px", width:"100%"}}>
@@ -59,7 +64,7 @@ export default function RowTitleLinks({actorsAndRoles=[], marginTop, gap, num, w
                                             gap: '0.5rem',
                                             textAlign: 'center'
                                         }}>
-                                            {actorsAndRoles.filter(([name, role]) => role === "Director").map(([name], index) => (
+                                            {actorsAndRoles.filter(([role]) => role === "Director").map(([name], index) => (
                                                 <span key={index}>{name}</span>
                                             ))}
                                         </div>
