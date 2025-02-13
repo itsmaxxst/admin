@@ -1,7 +1,15 @@
-import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, Link } from "@nextui-org/react";
+import {
+    Button,
+    Dropdown,
+    DropdownItem,
+    DropdownMenu,
+    DropdownTrigger,
+    Link
+} from "@nextui-org/react";
 import { ChevronDownIcon } from "@/data/public/ChevronDownIcon";
 import type { Selection } from "@nextui-org/react";
 import React from "react";
+import {CollectionItem} from "yaml/dist/parse/cst";
 
 interface Item {
     id: string;
@@ -15,7 +23,7 @@ interface DropdownComponentProps {
     setSelectedKeys: React.Dispatch<React.SetStateAction<Selection>>;
 }
 
-export default function DropdownComponent({ title, items, selectedKeys, setSelectedKeys }: DropdownComponentProps) {
+export default function DropdownComponent({ title, items=[], selectedKeys, setSelectedKeys }: DropdownComponentProps) {
     const handleReset = () => {
         setSelectedKeys(new Set());
     };
@@ -39,12 +47,12 @@ export default function DropdownComponent({ title, items, selectedKeys, setSelec
                 </Button>
             </DropdownTrigger>
             <DropdownMenu selectionMode="multiple" closeOnSelect={false} variant={"flat"} selectedKeys={selectedKeys} onSelectionChange={setSelectedKeys} style={{ gap: '6px' }}>
-                {items && items.map((item) => (
+                {items.map((item) => (
                     <DropdownItem key={item.id} value={item.name}>
                         {item.name}
                     </DropdownItem>
-                ))}
-                <DropdownItem hideSelectedIcon={true}>
+                )) as never}
+                <DropdownItem hideSelectedIcon={true} key={"clear"}>
                     <Link onClick={handleReset} style={{ color: "black" }}>Скинути</Link>
                 </DropdownItem>
             </DropdownMenu>

@@ -7,6 +7,7 @@ import {
     Checkbox,
     CheckboxGroup,
     Pagination,
+    Selection
 } from "@nextui-org/react";
 import NavbarComponent from "@/app/components/ui/site/navbar/navbar";
 import CardComponent from "@/app/components/ui/site/card/card";
@@ -31,10 +32,10 @@ interface Item {
 }
 
 export default function SearchPage() {
-    const [selectedGenreKeys, setSelectedGenreKeys] = useState<Set<string>>(new Set());
-    const [selectedYearKeys, setSelectedYearKeys] = useState<Set<string>>(new Set());
-    const [selectedCountryKeys, setSelectedCountryKeys] = useState<Set<string>>(new Set());
-    const [selectedStudioKeys, setSelectedStudioKeys] = useState<Set<string>>(new Set());
+    const [selectedGenreKeys, setSelectedGenreKeys] = useState<Selection>(new Set());
+    const [selectedYearKeys, setSelectedYearKeys] = useState<Selection>(new Set());
+    const [selectedCountryKeys, setSelectedCountryKeys] = useState<Selection>(new Set());
+    const [selectedStudioKeys, setSelectedStudioKeys] = useState<Selection>(new Set());
     const [searchQuery, setSearchQuery] = useState<string>("");
     const [results, setResults] = useState<Item[]>([]);
     const [currentPage, setCurrentPage] = useState<number>(1);
@@ -54,6 +55,11 @@ export default function SearchPage() {
         setSelectedCountryKeys(new Set());
         setSelectedStudioKeys(new Set());
     };
+
+    const genresOptions = genres.map((genre) => ({ id: genre, name: genre }));
+    const studioOptions = studio.map((studio) => ({ id: studio, name: studio }));
+    const countryOptions = country.map((country) => ({ id: country, name: country }));
+
 
     const handleSelectionChange = (values: string[]) => {
         setSelectedValues(values);
@@ -189,10 +195,10 @@ export default function SearchPage() {
                         </CheckboxGroup>
                         <div style={{ display: "flex", marginTop: "34px", width: "100%", gap: "16px", flexDirection: "row" }}>
                             <div style={{ display: "flex", alignItems: "center", justifyContent: "left", width: "80%", flexDirection: "row", flexWrap: "wrap", gap: "16px", overflow: "auto" }}>
-                                <DropdownComponent title={"Жанр"} items={genres} selectedKeys={selectedGenreKeys} setSelectedKeys={setSelectedGenreKeys} />
+                                <DropdownComponent title={"Жанр"} items={genresOptions} selectedKeys={selectedGenreKeys} setSelectedKeys={setSelectedGenreKeys} />
                                 <DropdownComponent title={"Рік"} items={years} selectedKeys={selectedYearKeys} setSelectedKeys={setSelectedYearKeys} />
-                                <DropdownComponent title={"Країна"} items={country} selectedKeys={selectedCountryKeys} setSelectedKeys={setSelectedCountryKeys} />
-                                <DropdownComponent title={"Студіо"} items={studio} selectedKeys={selectedStudioKeys} setSelectedKeys={setSelectedStudioKeys} />
+                                <DropdownComponent title={"Країна"} items={countryOptions} selectedKeys={selectedCountryKeys} setSelectedKeys={setSelectedCountryKeys} />
+                                <DropdownComponent title={"Студіо"} items={studioOptions} selectedKeys={selectedStudioKeys} setSelectedKeys={setSelectedStudioKeys} />
                             </div>
                             <div style={{ display: "flex", alignItems: "center", justifyContent: "left", height: "3.5rem", width: "20%", flexDirection: "row", flexWrap: "wrap", gap: "16px", overflow: "auto" }}>
                                 <Button style={{ padding: "12px 28px", color: "white", fontSize: "20px", gap: "8px" }} variant={"ghost"} onClick={handleResetAll}>Очистити</Button>

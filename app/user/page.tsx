@@ -238,7 +238,8 @@ export default function UserPage(){
                                         <div
                                             style={{width: '100%', display: 'flex', flexDirection: 'row', gap: '6rem'}}>
                                             <Link style={{color: 'white', fontSize: '16px', fontWeight: '600'}}
-                                                  onPress={() => fileInputRef.current.click()}>Завантажити</Link>
+                                                  onPress={() => fileInputRef.current?.click()}>Завантажити
+                                            </Link>
                                             <Link style={{color: 'white', fontSize: '16px', fontWeight: '600'}}>Видалити
                                                 фото</Link>
                                             <input
