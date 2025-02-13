@@ -16,9 +16,10 @@ interface rowTitleProps {
     titleDesc?: string;
     titleFont?: string;
     cards: { id: string; img: string; title: string; desc?: string }[];
+    isLoading: boolean;
 }
 
-export default function rowTitle({title, description, marginTop, gap, num, width, cards, hidden, total, titleDesc, titleFont, height}: rowTitleProps){
+export default function rowTitle({isLoading, title, description, marginTop, gap, num, width, cards, hidden, total, titleDesc, titleFont, height}: rowTitleProps){
     return (
         <Suspense>
             <div className={styles.cardWrapper} style={{marginTop: marginTop, zIndex: '3'}}>
@@ -27,7 +28,7 @@ export default function rowTitle({title, description, marginTop, gap, num, width
                         className={styles.desc}>{titleDesc}</span></h1>
                     <Link style={{cursor: 'pointer'}} className={styles.showMore}>{description}</Link>
                 </div>
-                <CardRow height={height} total={total} gap={gap} num={num} width={width} cards={cards} hidden={hidden}/>
+                <CardRow isLoading={isLoading} height={height} total={total} gap={gap} num={num} width={width} cards={cards} hidden={hidden}/>
             </div>
         </Suspense>
     )

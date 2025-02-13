@@ -8,7 +8,7 @@ import ActiveBackground from "@/app/components/ui/site/activeBackground/activeBa
 import styles from "@/app/components/ui/site/site.module.css"
 import API_BASE_URL from "@/app/api/apiConfig";
 const DynamicRowTitle = lazy(()=> import("@/app/components/ui/site/dynamicRowTitle/dynamicRowTitle"));
-//3160px 3952px
+
 export default function HomePage() {
     const [bannerUrl, setBannerUrl] = useState("");
     const [activePage, setActivePage] = useState(1);
@@ -84,23 +84,29 @@ export default function HomePage() {
         <main className={styles.main}>
             <ButtonRow titles={firstTitles}/>
             <Suspense fallback={<div></div>}>
-                <DynamicRowTitle title={"Найкращі твори 2023-24 року"} height={"17.1875rem"}
+                <DynamicRowTitle title={"Найкращі твори 2023-24 року"}
+                                 height={"17.1875rem"}
                                  hidden={false}
                                  description={"Показати більше"}
                                  gap={"1rem"}
                                  num={6}
                                  total={20}
-                                 width={"202px"} tagId={"/api/v1/mediaitem/movies/tag/11"}
+                                 width={"202px"}
+                                 tagId={"/api/v1/mediaitem/movies/tag/11"}
                 />
-                <DynamicRowTitle title={"Фантастика"} height={"17.1875rem"}
+                <DynamicRowTitle title={"Фантастика"}
+                                 height={"17.1875rem"}
                                  hidden={false}
                                  description={"Показати більше"}
                                  marginTop={"-0.3%"}
                                  gap={"1rem"}
                                  num={6}
                                  total={20}
-                                 width={"202px"} tagId={"/api/v1/mediaitem/movies/tag/10"}/>
-                <DynamicRowTitle title={"Життя та музика легендарного Фредді Мерк'юрі"} height={"auto"}
+                                 width={"202px"}
+                                 tagId={"/api/v1/mediaitem/movies/tag/10"}/>
+
+                <DynamicRowTitle title={"Життя та музика легендарного Фредді Мерк'юрі"}
+                                 height={"auto"}
                                  hidden={true}
                                  marginTop={"-0.5%"}
                                  gap={"16px"}
@@ -108,22 +114,28 @@ export default function HomePage() {
                                  total={3}
                                  width={"421px"}
                                  tagId={"/api/v1/personimage/person/739365c6-77e7-4957-9554-17a89c6e6e15"}/>
-                <DynamicRowTitle title={"Пригоди"} height={"17.1875rem"}
-                                 hidden={false}
-                                 description={"Показати більше"}
-                                 marginTop={"-2%"}
-                                 gap={"1rem"}
-                                 num={6}
-                                 total={20}
-                                 width={"202px"} tagId={"/api/v1/mediaitem/movies/tag/8"}/>
-                <DynamicRowTitle title={"Фентезі"} height={"17.1875rem"}
+
+                <DynamicRowTitle title={"Пригоди"}
+                                 height={"17.1875rem"}
                                  hidden={false}
                                  description={"Показати більше"}
                                  marginTop={"-0.5%"}
                                  gap={"1rem"}
                                  num={6}
                                  total={20}
-                                 width={"202px"} tagId={"/api/v1/mediaitem/movies/tag/20"}/>
+                                 width={"202px"}
+                                 tagId={"/api/v1/mediaitem/movies/tag/8"}/>
+
+                <DynamicRowTitle title={"Фентезі"}
+                                 height={"17.1875rem"}
+                                 hidden={false}
+                                 description={"Показати більше"}
+                                 marginTop={"-0.5%"}
+                                 gap={"1rem"}
+                                 num={6}
+                                 total={20}
+                                 width={"202px"}
+                                 tagId={"/api/v1/mediaitem/movies/tag/20"}/>
             </Suspense>
             <div className={styles.title} style={{marginTop: '2.5%'}}>
                 <p>Обери фільм на будь-який смак</p>

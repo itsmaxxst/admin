@@ -51,12 +51,10 @@ const LoginCard: React.FC = () => {
             const { credential } = response;
             console.log("Дані Google Login:", credential);
 
-            // Отправьте токен на ваш сервер для проверки и получения данных
             const serverResponse = await axios.post(`${API_BASE_URL}/api/v1/auth/google-login`, {
                 token: credential
             });
 
-            // Сохраните токены или другие данные в localStorage
             const { accessToken, refreshToken } = serverResponse.data.data;
             localStorage.setItem("accessToken", accessToken);
             localStorage.setItem("refreshToken", refreshToken);

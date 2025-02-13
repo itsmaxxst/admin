@@ -54,16 +54,16 @@ export default function NavbarComponent() {
                     </NavbarBrand>
                     <NavbarContent className={styles.content}>
                         <NavbarItem>
-                            <Link href="/template/recommendations" className={isActiveLink("/template/recommendations") ? styles.activeLink : styles.link}>Рекомендації</Link>
+                            <Link href="/recommendations" className={isActiveLink("/recommendations") ? styles.activeLink : styles.link}>Рекомендації</Link>
                         </NavbarItem>
                         <NavbarItem>
-                            <Link href="/template/films" className={isActiveLink("/template/films") ? styles.activeLink : styles.link}>Фільми</Link>
+                            <Link href="/films" className={isActiveLink("/films") ? styles.activeLink : styles.link}>Фільми</Link>
                         </NavbarItem>
                         <NavbarItem>
-                            <Link href="/template/cartoons" className={isActiveLink("/template/cartoons") ? styles.activeLink : styles.link}>Мультфільми</Link>
+                            <Link href="/cartoons" className={isActiveLink("/cartoons") ? styles.activeLink : styles.link}>Мультфільми</Link>
                         </NavbarItem>
                         <NavbarItem>
-                            <Link href="/template/series" className={isActiveLink("/template/series") ? styles.activeLink : styles.link}>Серіали</Link>
+                            <Link href="/series" className={isActiveLink("/series") ? styles.activeLink : styles.link}>Серіали</Link>
                         </NavbarItem>
                     </NavbarContent>
                 </div>

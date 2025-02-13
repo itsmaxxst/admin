@@ -1,5 +1,5 @@
 "use client";
-import {lazy, Suspense, useEffect, useState} from "react";
+import {lazy, useEffect, useState} from "react";
 import API_BASE_URL from "@/app/api/apiConfig";
 const RowTitle = lazy(()=> import("@/app/components/ui/site/rowTitle/rowTitle"));
 
@@ -25,13 +25,16 @@ interface DynamicRowTitleProps {
 
 const DynamicRowTitle: React.FC<DynamicRowTitleProps> = ({title, height, tagId, description, hidden, marginTop, gap, num, total, width,}) => {
     const [cards, setCards] = useState<Card[]>([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [hasError, setHasError] = useState(false);
 
     useEffect(() => {
         const fetchCards = async () => {
             try {
+                setIsLoading(true); // Устанавливаем загрузку
+                setHasError(false); // Сбрасываем ошибки
                 const response = await fetch(`${API_BASE_URL}${tagId}?pageNumber=1&pageSize=20`);
                 const data = await response.json();
-                console.log('API Response:', data);
                 if (data.isSuccess) {
                     const formattedCards: Card[] = data.data.map((item) => ({
                         id: item.id,
@@ -41,34 +44,41 @@ const DynamicRowTitle: React.FC<DynamicRowTitleProps> = ({title, height, tagId, 
                             ? `${item.tags.map((tag) => tag.name).join(", ")}, ${item.releaseYear}`
                             : `${item.releaseYear}`,
                     }));
-                    console.log('Formatted Cards:', formattedCards);
                     setCards(formattedCards);
-                    console.log(`Фільми для тега ${tagId} успішно завантажилися`);
+                } else {
+                    throw new Error("Ошибка в данных API");
                 }
             } catch (error) {
                 console.error(`Помилка при завантаженні фільмів для тега ${tagId}:`, error);
+                setHasError(true);
+            } finally {
+                setIsLoading(false);
             }
         };
 
         fetchCards();
     }, [tagId]);
 
-    return (
-        <Suspense>
-            <RowTitle
-                height={height}
-                title={title}
-                cards={cards}
-                hidden={hidden}
-                description={description}
-                marginTop={marginTop}
-                gap={gap}
-                num={num}
-                total={total}
-                width={width}
-            />
-        </Suspense>
-    );
+        return (
+            <div style={{marginTop: marginTop}}>
+                <div style={{display: "flex", gap: gap}}>
+                        <RowTitle
+                            height={height}
+                            title={title}
+                            cards={cards}
+                            hidden={hidden}
+                            description={description}
+                            marginTop={marginTop}
+                            gap={gap}
+                            num={num}
+                            total={total}
+                            width={width}
+                            isLoading={isLoading}
+                        />
+                </div>
+            </div>
+        );
 };
+
 
 export default DynamicRowTitle;

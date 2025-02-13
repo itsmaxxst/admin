@@ -5,14 +5,15 @@ import axiosClient from '@/app/lib/axiosClient';
 const withAuth = (WrappedComponent: React.ComponentType) => {
     return (props: any) => {
         const router = useRouter();
-        const [isAuthenticated, setIsAuthenticated] = useState(false);
+        const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
 
         useEffect(() => {
             const verifyToken = async () => {
                 try {
-                    await axiosClient.get('/api/auth'); // Пытаемся обновить токен
+                    await axiosClient.get('/api/auth');
                     setIsAuthenticated(true);
                 } catch {
+                    setIsAuthenticated(false);
                     router.push('/login');
                 }
             };
@@ -20,12 +21,13 @@ const withAuth = (WrappedComponent: React.ComponentType) => {
             verifyToken();
         }, [router]);
 
-        if (!isAuthenticated) {
+        if (isAuthenticated === null) {
             return <div>Loading...</div>;
         }
 
-        return <WrappedComponent {...props} />;
+        return isAuthenticated ? <WrappedComponent {...props} /> : null;
     };
 };
+
 
 export default withAuth;

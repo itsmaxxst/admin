@@ -13,6 +13,7 @@ import {Heart} from "@/data/public/Heart";
 import {Twitter} from "@/data/public/Twitter";
 import {Share} from "@/data/public/Share";
 import {Star} from "@/data/public/Star";
+import {YellowStar} from "@/data/public/YellowStar";
 import React, { useEffect, useState } from "react";
 import {MdCheck} from "react-icons/md";
 import API_BASE_URL from "@/app/api/apiConfig";
@@ -168,7 +169,7 @@ export default function WatchPage({params}:{params:{id:string}}){
                 <div>
                     <div style={{display: 'flex', flexDirection: 'row', gap: '2rem', alignItems: 'center'}}>
                         <Button onClick={() => toggleLike(comment.id)} startContent={<Heart color={comment.isLiked ? '#F1EA76' : 'white'}/>} style={{background: 'transparent', color:'white', fontSize:'16px'}}>
-                            12
+                            1
                         </Button>
                         <Button isIconOnly={true} startContent={<BrokenHeart/>} style={{background: 'transparent'}}/>
                         <Button style={{background: 'transparent', color: 'white'}}
@@ -372,10 +373,9 @@ export default function WatchPage({params}:{params:{id:string}}){
                                 <Button
                                     key={index}
                                     isIconOnly
-                                    style={{backgroundColor: index < selected ? 'yellow' : 'transparent',}}
-                                    onClick={() => handleClick(index)}
-                                >
-                                    <Star/>
+                                    style={{backgroundColor: 'transparent'}}
+                                    onClick={() => handleClick(index)}>
+                                    {index < selected ? <YellowStar /> : <Star />}
                                 </Button>
                             ))}
                         </ButtonGroup>
