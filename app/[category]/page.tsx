@@ -18,7 +18,7 @@ export default function TemplatePage(){
         cartoons: "Мультфільми",
     };
 
-    const currentTitle = categoryTitles[category] || "Категорія";
+    const currentTitle = categoryTitles[category as string] || "Категорія";
 
     const secondTitles = second.map(item => item.title);
     return (
@@ -39,28 +39,24 @@ export default function TemplatePage(){
                                      hidden={false}
                                      gap={"1rem"}
                                      num={6}
-                                     total={6}
                                      width={"202px"} tagId={"/api/v1/mediaitem/movies/tag/8"}
                     />
                     <DynamicRowTitle title={""}
                                      hidden={false}
                                      gap={"1rem"}
                                      num={6}
-                                     total={6}
                                      width={"202px"} tagId={"/api/v1/mediaitem/movies/tag/10"}
                     />
                     <DynamicRowTitle title={""}
                                      hidden={false}
                                      gap={"1rem"}
                                      num={6}
-                                     total={6}
                                      width={"202px"} tagId={"/api/v1/mediaitem/movies/tag/20"}
                     />
                     <DynamicRowTitle title={""}
                                      hidden={false}
                                      gap={"1rem"}
                                      num={6}
-                                     total={6}
                                      width={"202px"} tagId={"/api/v1/mediaitem/movies/tag/11"}
                     />
                 </Suspense>

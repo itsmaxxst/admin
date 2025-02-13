@@ -7,7 +7,7 @@ import styles from "@/app/components/ui/login/card/loginCard.module.css"
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import API_BASE_URL from "@/app/api/apiConfig";
-import {GoogleLogin, GoogleOAuthProvider} from "@react-oauth/google";
+import {GoogleLogin, GoogleOAuthProvider,  CredentialResponse} from "@react-oauth/google";
 
 const LoginCard: React.FC = () => {
     const [isVisible, setIsVisible] = React.useState(false);
@@ -41,12 +41,12 @@ const LoginCard: React.FC = () => {
 
 
             router.push("/");
-        } catch (err) {
-            setError(err.response?.data?.errorMessage || "Помилка входу");
+        } catch {
+            setError("Помилка входу");
         }
     };
 
-    const handleGoogleLogin = async (response) => {
+    const handleGoogleLogin = async (response: CredentialResponse) => {
         try {
             const { credential } = response;
             console.log("Дані Google Login:", credential);
@@ -129,7 +129,7 @@ const LoginCard: React.FC = () => {
                             <div style={{width:'100%'}}>
                                 <GoogleLogin
                                     onSuccess={handleGoogleLogin}
-                                    onError={(error) => console.error("Помилка Google Login:", error)}
+                                    onError={() => console.error("Помилка Google Login:")}
                                     theme="filled_blue"
                                     useOneTap
                                 />
